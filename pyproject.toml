@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools", "flit_core >=2,<4"]
+build-backend = "setuptools.build_meta"
+
+[tool.flit.metadata]
+module = "sphinxcontrib-gherkin"
+author = "Martin Hasoň"
+author-email = "martin.hason@gmail.com"
+home-page = "https://github.com/sphinx-contrib/gherkin"
+description-file = "README.md"
+classifiers = ["License :: OSI Approved :: MIT License"]
+requires-python = ">=3.6"
+requires = [
+    "sphinx",
+    "behave",
+]
+
+[tool.flit.metadata.requires-extra]
+code = ["black", "flake8", "mypy", "isort"]
+test = [
+    "coverage",
+    "pytest",
+    "pytest-cov",
+]
+extra = []
+
+[tool.pytest.ini_options]
+markers = [
+    "sphinx: run test in sphinx project",
+]
+
+[tool.black]
+line-length = 79

@@ -1,0 +1,12 @@
+version: '3.6'
+
+services:
+  python:
+    image: minidocks/python:${PYTHON_VERSION:-3.9}-build
+    volumes:
+      - .:$PWD:cached
+      - /tmp:/tmp
+    environment:
+      VENV_PATH: $PWD/venv
+    working_dir: $PWD
+    command: sshd
